@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: myacgv11f-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: myacgv11f-python 
+  name: myacgv11f-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: myacgv11f-python
+    weight: 100 
